@@ -11,7 +11,9 @@ from environs import Env
 env = Env()
 env.read_env()
 
-bot_token = env('BOT_TOKEN')
+BOT_TOKEN = env('BOT_TOKEN')
+
+bot = Bot(token=BOT_TOKEN, default= DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
 class StartSG(StatesGroup):
@@ -22,3 +24,18 @@ async def some_handler(callback: CallbackQuery, dialog_manager: DialogManager): 
 
 async def some_getter(**kwargs): #We will create getters here
     pass
+
+#It is a start dialog
+start_dialog = Dialog(
+    Window(
+        #we will add widgets and getters here
+    ),
+)
+
+@dp.message(CommandStart())
+async def command_start_process(message: Message, dialog_manager: DialogManager):
+    await dialog_manager.start(state=StartSG.start, mode=StartMode.RESET_STACK)
+
+dp.include_router(start_dialog)
+setup_dialogs(dp)
+dp.run_polling(bot)
