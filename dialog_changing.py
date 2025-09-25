@@ -42,18 +42,18 @@ async def close_second_dialog(
 ):
     await dialog_manager.done()
 
-'''async def go_first(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.switch_to(state=StartSG.window_1)
+# async def go_first(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
+#     await dialog_manager.switch_to(state=StartSG.window_1)
 
-async def go_second(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.switch_to(state=StartSG.window_2)
+# async def go_second(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
+#     await dialog_manager.switch_to(state=StartSG.window_2)
 
-async def go_third(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.switch_to(state=StartSG.window_3)
+# async def go_third(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
+#     await dialog_manager.switch_to(state=StartSG.window_3)
 
-async def go_fourth(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.switch_to(state=StartSG.window_4)
-'''
+# async def go_fourth(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
+#     await dialog_manager.switch_to(state=StartSG.window_4)
+
 async def go_back(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
     await dialog_manager.back()
 
